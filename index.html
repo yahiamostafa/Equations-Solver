@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Solving 3 Equations in 3 unknowns</title>
+        <meta charset="utf-8">
+        <style>
+            h5{
+                text-align: center;
+            }
+            button{
+                cursor: pointer;
+                margin:6px;
+            }
+            span{
+                color: black;
+            }
+            .Ans{
+                /* background-color: lightblue; */
+                color:magenta;
+            }
+            table{
+                border: 1px solid black;
+                width: 100%;
+                background-color: salmon;
+                border-collapse: collapse;
+            }
+            .head{
+                background-color: lightseagreen;
+                width:100%;
+                border: black;
+            }
+            input[type="text"]{
+                width:22%;
+            }
+            button{
+                border: 2px solid #3498db;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            a{
+                text-align: right;
+                color: brown;
+            }
+            p{
+                background-color: black;
+                color: white;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h5>Simultaneous Linear Equations Solver for three Variables</h5>
+            <div class="head">
+                Equations
+            </div>
+        <div class="ta">
+                <table border=1 frame=hsides rules=rows>
+                <tr>
+                    <td>Eq1</td>
+                    <td><input type="text" name="" id="x1" value="0">x+<input type="text" name="" id="y1"value="0">y+<input type="text" name="" id="z1"value="0">z=<input type="text" name="" id="res1"value="0"></td>
+                </tr>
+                <tr>
+                        <td>Eq2</td>
+                        <td><input type="text" name="" id="x2" value="0">x+<input type="text" name="" id="y2" value="0">y+<input type="text" name="" id="z2" value="0">z=<input type="text" name="" id="res2"value="0"></td>
+                    </tr>
+                    <tr>
+                            <td>Eq3</td>
+                            <td><input type="text" name="" id="x3" value="0">x+<input type="text" name="" id="y3" value="0">y+<input type="text" name="" id="z3" value="0">z=<input type="text" name="" id="res3" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>final</td>
+                        <td><button onclick="calc()">Calculate</button> <button><a href="index.html"> Reset</a></button></td>
+                    </tr>
+            </table>
+        </div>
+        <button><a href ="index.html">Solving equations of three variables</a><br></button>
+        <button><a href ="calc4.html">Solving equations of four variables</a><br></button>
+        <button><a href ="calc5.html">Solving equations of five variables</a><br></button>
+        <button><a href ="calc6.html">Solving equations of six variables</a><br></button>
+        <button><a href ="calc7.html">Solving equations of seven variables</a><br></button>
+        <button><a href ="calc8.html">Solving equations of eight variables</a><br></button>
+        <button><a href ="calc9.html">Solving equations of nine variables</a><br></button>
+        <button><a href ="calc10.html">Solving equations of ten variables</a><br></button>
+        <div class ="Ans">
+            value of X is <span id ="M">0000</span><br>
+            value of Y is <span id ="M1">0000</span><br>
+            value of Z is <span id ="M2">0000</span><br>
+        </div>
+        <script>
+            function calc(){
+                var x =new Array(3); 
+                x[0]=new Array(3);
+                x[1]=new Array(3);
+                x[2]=new Array(3);
+                x[0][0]=(document.getElementById("x1").value);
+                x[0][1]=(document.getElementById("y1").value);
+                x[0][2]=(document.getElementById("z1").value);
+                x[1][0]=(document.getElementById("x2").value);
+                x[1][1]=(document.getElementById("y2").value);
+                x[1][2]=(document.getElementById("z2").value);
+                x[2][0]=(document.getElementById("x3").value);
+                x[2][1]=(document.getElementById("y3").value);
+                x[2][2]=(document.getElementById("z3").value);
+                var res1 =document.getElementById("res1").value;
+                var res2 =document.getElementById("res2").value;
+                var res3 =document.getElementById("res3").value;
+                res1=parseFloat(res1);
+                res2=parseFloat(res2);
+                res3=parseFloat(res3);
+                x[0][0]=parseFloat(x[0][0]);
+                x[0][1]=parseFloat(x[0][1]);
+                x[0][2]=parseFloat(x[0][2]);
+                x[1][0]=parseFloat(x[1][0]);
+                x[1][1]=parseFloat(x[1][1]);
+                x[1][2]=parseFloat(x[1][2]);
+                x[2][0]=parseFloat(x[2][0]);
+                x[2][1]=parseFloat(x[2][1]);
+                x[2][2]=parseFloat(x[2][2]);
+                for (var t =0;t<3;++t)
+                    for (var e =0 ;e<3;++e)
+                    if (x[t][e]===parseFloat(x[t][e]))
+                    x[t][e]=parseFloat(x[t][e]);
+                else{
+                    alert("there is some thing wrong in your input you may enter a string");
+                    return;
+                }
+                if (res1!==parseFloat(res1)||res2!==parseFloat(res2)||res3!==parseFloat(res3)){
+                    alert("there is some thing wrong in your input you may enter a string");
+                    return;
+                }
+                var det1 =det(x,3);
+                if (det1===0)
+                    alert("You may have no solution or infinte number of solutions ");
+                    else{
+                        var array =new Array(3);
+                        array[0]=new Array(3);
+                        array[1]=new Array(3);
+                        array[2]=new Array(3);
+                        array[0][0]=res1;
+                        array[1][0]=res2;
+                        array[2][0]=res3;
+                        for (var o =0;o<3;++o){
+                            for (var q = 1;q<3;++q)
+                                array[o][q]=x[o][q];
+                        }
+                        var det_x=det(array,3)/det1;
+                        var t=new Array(3);
+                        t[0]=new Array(3);
+                        t[1]=new Array(3);
+                        t[2]=new Array(3);
+                        t[0][1]=res1;
+                        t[1][1]=res2;
+                        t[2][1]=res3;
+                        for (var o =0;o<3;++o){
+                            for (var q = 0;q<3;++q)
+                                if (q!=1)
+                                t[o][q]=x[o][q];
+                        }
+                        var det_y=det(t,3)/det1;
+                        x[0][2]=res1;
+                        x[1][2]=res2;
+                        x[2][2]=res3;
+                        var det_z=det(x,3)/det1;
+                        var bw =document.getElementById("M").innerHTML=det_x;
+                        var mn =document.getElementById("M1").innerHTML=det_y;
+                        var kl =document.getElementById("M2").innerHTML=det_z;
+                    }
+            }
+            function det(x,N){
+                var d=0;
+                 if (N==2)
+                    d=x[0][0]*x[1][1]-x[0][1]*x[1][0];
+                else{
+                    var z =new Array(N-1);
+                    d=0;
+                    for (var skipC =0;skipC<N;++skipC){
+                        for (var k =0 ;k<N-1;++k){
+                            z[k]=new Array(N-1);
+                       }
+                       for (var i=1;i<N;++i){
+                            var skipR=0;
+                            for(var j=0;j<N;++j){
+                                if (j==skipC)
+                                    continue;
+                                z[i-1][skipR]=x[i][j];
+                                skipR++;
+                            }
+                       }
+                       var t=0;
+                       if(skipC%2==0)
+                        t=1;
+                        else
+                            t=-1;
+                        d+=t*x[0][skipC]*det(z,N-1);
+                    }
+                }
+                return d;
+            }
+            </script>
+            
+    </body>
+</html>

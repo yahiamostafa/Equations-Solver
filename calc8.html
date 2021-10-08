@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Solving 8 Equations in 8 unknowns </title>
+        <meta charset="utf-8">
+        <style>
+            body{
+                background-color: lightgrey;
+            }
+        h6{
+                text-align: center;
+            }
+            span{
+                color: black;
+            }
+            .Ans{
+                /* background-color: lightblue; */
+                color:magenta;
+            }
+            table{
+                border: 1px solid black;
+                width: 100%;
+                background-color: lightpink;
+                border-collapse: collapse;
+            }
+            .head{
+                background-color: deeppink;
+                width:100%;
+                border: black;
+            }
+            input[type="text"]{
+                width:9.59%;
+            }
+            button{
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+            a{
+                text-align: right;
+                color: brown;
+            }
+            p{
+                background-color: black;
+                color: white;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h6>Simultaneous Linear Equations Solver for eight Variables</h6>
+        <div class="head">
+            Equations
+        </div>
+    <div class="ta">
+            <table border=1 frame=hsides rules=rows>
+            <tr>
+                <td>Eq1</td>
+                <td><input type="text" name="" id="p1" value="0">A+<input type="text" name="" id="p2"value="0">B+<input type="text" name="" id="p3"value="0">C+<input type="text" name="" id="p4"value="0">D+<input type="text" name="" id="p5"value="0">E+<input type="text" name="" id="p6"value="0">F+<input type="text" name="" id="p7"value="0">G+<input type="text" name="" id="p8"value="0">H=<input type="text" name="" id="p9"value="0"></td>
+            </tr>
+            <tr>
+                    <td>Eq2</td>
+                    <td><input type="text" name="" id="p10" value="0">A+<input type="text" name="" id="p11"value="0">B+<input type="text" name="" id="p12"value="0">C+<input type="text" name="" id="p13"value="0">D+<input type="text" name="" id="p14"value="0">E+<input type="text" name="" id="p15"value="0">F+<input type="text" name="" id="p16"value="0">G+<input type="text" name="" id="p17"value="0">H=<input type="text" name="" id="p18"value="0"></td>
+                </tr>
+                <tr>
+                        <td>Eq3</td>
+                        <td><input type="text" name="" id="p19" value="0">A+<input type="text" name="" id="p20"value="0">B+<input type="text" name="" id="p21"value="0">C+<input type="text" name="" id="p22"value="0">D+<input type="text" name="" id="p23"value="0">E+<input type="text" name="" id="p24"value="0">F+<input type="text" name="" id="p25"value="0">G+<input type="text" name="" id="p26"value="0">H=<input type="text" name="" id="p27"value="0"></td>
+
+                    </tr>
+                <tr>
+                    <td>Eq4</td>
+                    <td><input type="text" name="" id="p28" value="0">A+<input type="text" name="" id="p29"value="0">B+<input type="text" name="" id="p30"value="0">C+<input type="text" name="" id="p31"value="0">D+<input type="text" name="" id="p32"value="0">E+<input type="text" name="" id="p33"value="0">F+<input type="text" name="" id="p34"value="0">G+<input type="text" name="" id="p35"value="0">H=<input type="text" name="" id="p36"value="0"></td>
+                </tr>
+                <tr>
+                    <td>Eq5</td>
+                    <td><input type="text" name="" id="p37" value="0">A+<input type="text" name="" id="p38"value="0">B+<input type="text" name="" id="p39"value="0">C+<input type="text" name="" id="p40"value="0">D+<input type="text" name="" id="p41"value="0">E+<input type="text" name="" id="p42"value="0">F+<input type="text" name="" id="p43"value="0">G+<input type="text" name="" id="p44"value="0">H=<input type="text" name="" id="p45"value="0"></td>
+                </tr>
+                <tr>
+                    <tr>
+                        <td>Eq6</td>
+                       <td><input type="text" name="" id="p46" value="0">A+<input type="text" name="" id="p47"value="0">B+<input type="text" name="" id="p48"value="0">C+<input type="text" name="" id="p49" value="0">D+<input type="text" name="" id="p50"value="0">E+<input type="text" name="" id="p51"value="0">F+<input type="text" name="" id="p52"value="0">G+<input type="text" name="" id="p53"value="0">H=<input type="text" name="" id="p54"value="0"></td>
+
+                    </tr>
+                    <tr>
+                        <td>Eq7</td>
+                        <td><input type="text" name="" id="p55" value="0">A+<input type="text" name="" id="p56"value="0">B+<input type="text" name="" id="p57"value="0">C+<input type="text" name="" id="p58"value="0">D+<input type="text" name="" id="p59"value="0">E+<input type="text" name="" id="p60"value="0">F+<input type="text" name="" id="p61"value="0">G+<input type="text" name="" id="p62"value="0">H=<input type="text" name="" id="p63"value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Eq8</td>                   
+                        <td><input type="text" name="" id="p64" value="0">A+<input type="text" name="" id="p65"value="0">B+<input type="text" name="" id="p66"value="0">C+<input type="text" name="" id="p67"value="0">D+<input type="text" name="" id="p68"value="0">E+<input type="text" name="" id="p69"value="0">F+<input type="text" name="" id="p70"value="0">G+<input type="text" name="" id="p71"value="0">H=<input type="text" name="" id="p72"value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>fina</td>
+                        <td><button onclick="calc()">Calculate</button> <button><a href="calc8.html"> Reset</a></button></td>
+                    </tr>
+        </table>
+    </div>
+    <button><a href ="index.html">Solving equations of three variables</a><br></button>
+    <button><a href ="calc4.html">Solving equations of four variables</a><br></button>
+    <button><a href ="calc5.html">Solving equations of five variables</a><br></button>
+    <button><a href ="calc6.html">Solving equations of six variables</a><br></button>
+    <button><a href ="calc7.html">Solving equations of seven variables</a><br></button>
+    <button><a href ="calc8.html">Solving equations of eight variables</a><br></button>
+    <button><a href ="calc9.html">Solving equations of nine variables</a><br></button>
+    <button><a href ="calc10.html">Solving equations of ten variables</a><br></button>
+    <div class="Ans">
+        value of A is <span id ="M">0000</span><br>
+        value of B is <span id ="M1">0000</span><br>
+        value of C is <span id ="M2">0000</span><br>
+        value of D is <span id ="M3">0000</span><br>
+        value of E is <span id ="M4">0000</span><br>
+        value of F is <span id ="M5">0000</span><br>
+        value of G is <span id ="M6">0000</span><br>
+        value of H is <span id ="M7">0000</span><br>
+    </div>
+    <script>
+        function calc(){
+            var x =new Array(8);
+            for (var e =0;e<8;++e)
+                x[e]=new Array(9);
+        var c=parseInt(1);
+        var res_Array=new Array(9);
+        for (var i =0 ;i<8;++i){
+            for (var j =0 ;j<9;++j){
+                x[i][j]=document.getElementById(("p"+c)).value;
+                c+=1;
+            }
+        }
+        for (var t=0;t<x.length;++t){
+            for (var e =0;e<x[t].length;++e)
+            if (x[t][e]==parseFloat(x[t][e]))
+                x[t][e]=parseFloat(x[t][e]);
+                else{
+                    alert("there is some thing wrong in your input you may enter a string");
+                    return;
+                }
+        }
+        for (var test=-1;test<x[0].length;++test){
+            var array =new Array(8);
+                for (var y=0;y<array.length;++y)
+                    array[y]=new Array(9);
+            for (var i=0;i<x.length;++i){
+                for (var j=0;j<x.length;++j){
+                    if (j==test)
+                        array[i][j]=x[i][8];
+                    else
+                        array[i][j]=x[i][j];
+                }
+            }
+            res_Array[test+1]=det(array,8);
+            if (res_Array[0]===0){
+            alert("You may have no solution or infinte number of solutions ");
+            return;
+            }
+            else{
+                if (test==7){
+                document.getElementById("M").innerHTML=(res_Array[1]/res_Array[0]);
+                document.getElementById("M1").innerHTML=(res_Array[2]/res_Array[0]);
+                document.getElementById("M2").innerHTML=(res_Array[3]/res_Array[0]);
+                document.getElementById("M3").innerHTML=(res_Array[4]/res_Array[0]);
+                document.getElementById("M4").innerHTML=(res_Array[5]/res_Array[0]);
+                document.getElementById("M5").innerHTML=(res_Array[6]/res_Array[0]);
+                document.getElementById("M6").innerHTML=(res_Array[7]/res_Array[0]);
+                document.getElementById("M7").innerHTML=(res_Array[8]/res_Array[0]);
+                    return;
+                }
+            }
+        }
+        }
+        function det(x,N){
+            // var txt="";
+            // for (var l =0;l<x.length;++l)
+            //      txt+=x[l][l]+ ", ";
+            // document.writeln(txt+"("+N+")");
+            var d=0;
+            if (N==1)
+                d=x[0][0];
+            else if (N==2)
+                d=x[0][0]*x[1][1]-x[0][1]*x[1][0];
+            else{
+                var z =new Array(N-1);
+                d=0;
+                for (var skipC =0;skipC<N;++skipC){
+                    for (var k =0 ;k<N-1;++k){
+                        z[k]=new Array(N-1);
+                    }
+                    for (var i=1;i<N;++i){
+                        var skipR=0;
+                        for(var j=0;j<N;++j){
+                            if (j==skipC)
+                                continue;
+                            z[i-1][skipR]=x[i][j];
+                            skipR++;
+                        }
+                    }
+                    var t=0;
+                    if(skipC%2==0)
+                    t=1;
+                    else
+                        t=-1;
+                    d+=t*x[0][skipC]*det(z,N-1);
+                }
+            }
+            return d;
+    }
+    </script>
+    </body>
+</html>
